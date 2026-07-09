@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Billy McComiskey archive">
+  <rect width="64" height="64" rx="12" fill="#14401f"/>
+  <g fill="#c2a45e">
+    <circle cx="24" cy="44" r="7"/>
+    <rect x="29" y="16" width="4" height="30"/>
+    <path d="M33 16c8 1 12 4 12 10 0 2-1 4-3 5 1-2 1-4-1-6-2-2-5-3-8-3z"/>
+  </g>
+</svg>

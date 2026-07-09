@@ -1,0 +1,167 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------ */
+/*  Theme tokens                                                        */
+/*  Forest-green + gold + cream identity from the Billy McComiskey      */
+/*  mockups. Values are tuned for high contrast (aging-eye readability) */
+/*  and a bold, always-visible focus ring for keyboard/screen-reader    */
+/*  users.                                                              */
+/* ------------------------------------------------------------------ */
+@theme inline {
+    --font-heading: var(--font-serif);
+    --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+
+    /* Brand tokens — use as bg-brand-green, text-brand-gold, etc. */
+    --color-brand-green: var(--brand-green);
+    --color-brand-green-dark: var(--brand-green-dark);
+    --color-brand-gold: var(--brand-gold);
+    --color-brand-gold-soft: var(--brand-gold-soft);
+    --color-brand-cream: var(--brand-cream);
+
+    /* shadcn semantic tokens */
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    /* Raw brand palette */
+    --brand-green: #14401f;       /* deep forest green — header / sidebar / primary */
+    --brand-green-dark: #0e2f16;  /* darker green for gradient depth / hover */
+    --brand-gold: #c2a45e;        /* engraved gold — logo, on-green accents */
+    --brand-gold-soft: #d8c088;   /* lighter gold for on-green text contrast */
+    --brand-cream: #f1efe4;       /* warm cream page background */
+
+    --radius: 0.75rem;
+
+    --background: #ece9db;         /* warm cream */
+    --foreground: #1b1b16;         /* near-black, ~15:1 on background */
+    --card: #f7f5ec;              /* lighter cream card, lifts off background */
+    --card-foreground: #1b1b16;
+    --popover: #f7f5ec;
+    --popover-foreground: #1b1b16;
+    --primary: #14401f;           /* forest green */
+    --primary-foreground: #f4f1e6;
+    --secondary: #e2decb;         /* muted sand */
+    --secondary-foreground: #223225;
+    --muted: #e2decb;
+    --muted-foreground: #5c5a48;   /* olive-gray for rhythm labels, ~5:1 on card */
+    --accent: #e8dcc0;            /* soft gold tint */
+    --accent-foreground: #3d3218;
+    --destructive: #8f2d1c;
+    --border: #cfc9b3;            /* warm tan border */
+    --input: #cfc9b3;
+    --ring: #8a6a2f;              /* darker gold — visible focus ring on cream */
+    --chart-1: #14401f;
+    --chart-2: #3f6b45;
+    --chart-3: #7a9a6c;
+    --chart-4: #c2a45e;
+    --chart-5: #8a6a2f;
+
+    /* Sidebar = forest green nav rail */
+    --sidebar: #14401f;
+    --sidebar-foreground: #eef0e2;
+    --sidebar-primary: #d8c088;
+    --sidebar-primary-foreground: #14401f;
+    --sidebar-accent: #1c5228;     /* hover/active green */
+    --sidebar-accent-foreground: #f4f1e6;
+    --sidebar-border: #235c30;
+    --sidebar-ring: #d8c088;       /* gold focus ring on green */
+}
+
+.dark {
+    --background: #10241a;
+    --foreground: #f1efe4;
+    --card: #163024;
+    --card-foreground: #f1efe4;
+    --popover: #163024;
+    --popover-foreground: #f1efe4;
+    --primary: #d8c088;
+    --primary-foreground: #10241a;
+    --secondary: #1e3a2b;
+    --secondary-foreground: #f1efe4;
+    --muted: #1e3a2b;
+    --muted-foreground: #b7c3ac;
+    --accent: #24402f;
+    --accent-foreground: #f1efe4;
+    --destructive: #d1584a;
+    --border: #2b4636;
+    --input: #2b4636;
+    --ring: #d8c088;
+    --sidebar: #0e2f16;
+    --sidebar-foreground: #eef0e2;
+    --sidebar-primary: #d8c088;
+    --sidebar-primary-foreground: #0e2f16;
+    --sidebar-accent: #1c5228;
+    --sidebar-accent-foreground: #f4f1e6;
+    --sidebar-border: #235c30;
+    --sidebar-ring: #d8c088;
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-background text-foreground;
+        /* Native safe-area support for iOS/Android gesture bars */
+        min-height: 100dvh;
+    }
+    html {
+        @apply font-sans;
+        -webkit-text-size-adjust: 100%; /* stop iOS auto-scaling text */
+    }
+    /* Always-visible, high-contrast focus outline for keyboard users */
+    :focus-visible {
+        @apply outline-2 outline-offset-2 outline-ring;
+    }
+}
+
+/* Bottom safe-area padding utility (mobile gesture bar) */
+@utility pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@utility pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+}

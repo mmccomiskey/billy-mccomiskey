@@ -1,0 +1,60 @@
+# Billy McComiskey — Original Compositions Archive
+
+> A static, client-side digital archive of the original musical compositions of
+> Billy McComiskey, NEA National Heritage Fellow and master Irish traditional
+> accordionist. Each composition carries sheet music (ABC notation), playable
+> audio, credits, and the historical story behind it.
+
+This file describes the site's data models for machine consumers (LLMs, crawlers,
+and archival ingest tools such as the Irish Traditional Music Archive, ITMA).
+
+## Data source
+
+- Canonical dataset: `/data/tunes.json` — a JSON array of `Tune` objects.
+- All data is static and served client-side; there is no backend API.
+
+## Data model: `Tune`
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | string | URL-safe stable identifier (kebab-case). |
+| `title` | string | Display title, e.g. "The Diamond". |
+| `rhythm` | string | Tune type: `reel`, `jig`, `slip jig`, `hornpipe`, `polka`, `slide`, `waltz`, `air`, `march`, `barndance`. |
+| `key` | string | Musical key, e.g. `G`, `Dmaj`, `Amaj`. |
+| `narrative` | string | The historical story behind the composition. |
+| `credits` | object | See `Credits` below. |
+| `archivalMetadata` | object | See `ArchivalMetadata` below. |
+| `abcNotation` | string | Standard ABC notation, rendered client-side via abcjs. |
+
+### `Credits`
+
+| Field | Type | Description |
+|---|---|---|
+| `composer` | string | Composer of the melody (Billy McComiskey for originals). |
+| `storyBy` | string? | Author of the narrative, when different from the composer. |
+| `editor` | string? | Person who edited/transcribed the entry. |
+
+### `ArchivalMetadata`
+
+Shaped to match ITMA ingest standards.
+
+| Field | Type | Description |
+|---|---|---|
+| `sourceCollection` | string | Name of the collection this entry belongs to. |
+| `rightsHolder` | string | Entity/person holding the rights. |
+| `recordingDate` | string | ISO-8601 date or year of the reference recording (`n.d.` if unknown). |
+
+## Local developer tools (MCP)
+
+A local Model Context Protocol server (`tools/mcp-server.mjs`, run via `npm run mcp`)
+exposes read tools over this dataset for coding agents:
+
+- `get_all_tunes` — returns the full `Tune[]` dataset.
+- `get_tune` — returns a single `Tune` by `id`.
+- `render_interactive_tune` — returns the ABC notation and metadata for a tune
+  so an agent can verify notation/rendering changes.
+
+## License & attribution
+
+Compositions © Billy McComiskey. Please retain composer and story credits when
+reusing any material from this archive.
