@@ -3,8 +3,7 @@
  * address are finalized.
  */
 
-// TODO: set to the real "owner/repo" once the repo is created on GitHub.
-export const GITHUB_REPO = 'billymccomiskey/billy-mccomiskey'
+export const GITHUB_REPO = 'mmccomiskey/billy-mccomiskey'
 
 // TODO: set to the real inbox that should receive feedback as an email fallback.
 export const CONTACT_EMAIL = 'archive@billymccomiskey.com'
