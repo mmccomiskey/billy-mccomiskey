@@ -34,6 +34,15 @@ function slowdownFor(rhythm?: string): number {
 }
 
 /**
+ * iOS/iPadOS silences the Web Audio API when the hardware silent switch is on,
+ * so we surface a hint. (iPadOS reports as "MacIntel" but has touch points.)
+ */
+const IS_IOS =
+  typeof navigator !== 'undefined' &&
+  (/iP(hone|ad|od)/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
+
+/**
  * Renders a tune as an infinite-resolution SVG staff (abcjs) and plays the
  * melody through the Web Audio API via abcjs's built-in synth. The SVG scales
  * responsively to its container so there's never a need to pinch-zoom.
@@ -45,11 +54,11 @@ export function AbcTune({ abc, title, rhythm }: AbcTuneProps) {
   // CreateSynth has no exported type surface we need beyond these calls.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const synthRef = useRef<any>(null)
-  const audioCtxRef = useRef<AudioContext | null>(null)
   const stopTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const [status, setStatus] = useState<PlayStatus>('idle')
   const [audioSupported, setAudioSupported] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!notationRef.current) return
@@ -87,24 +96,23 @@ export function AbcTune({ abc, title, rhythm }: AbcTuneProps) {
     }
     if (!visualObjRef.current) return
 
-    try {
-      setStatus('loading')
+    // iOS requires the AudioContext to be woken up synchronously inside the tap
+    // handler, before any await. Use abcjs's shared context so we resume the
+    // exact one it plays through.
+    const audioContext = abcjs.synth.activeAudioContext()
+    const resumed = audioContext.resume()
 
-      if (!audioCtxRef.current) {
-        const AudioCtx =
-          window.AudioContext ||
-          // Safari still exposes the prefixed constructor.
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (window as any).webkitAudioContext
-        audioCtxRef.current = new AudioCtx()
-      }
-      await audioCtxRef.current.resume()
+    setStatus('loading')
+    setError(null)
+
+    try {
+      await resumed
 
       if (!synthRef.current) {
         const synth = new abcjs.synth.CreateSynth()
         const naturalMs = visualObjRef.current.millisecondsPerMeasure?.() ?? 500
         await synth.init({
-          audioContext: audioCtxRef.current,
+          audioContext,
           visualObj: visualObjRef.current,
           millisecondsPerMeasure: naturalMs * slowdownFor(rhythm),
         })
@@ -112,7 +120,7 @@ export function AbcTune({ abc, title, rhythm }: AbcTuneProps) {
       }
 
       await synthRef.current.prime()
-      synthRef.current.start()
+      await synthRef.current.start()
       setStatus('playing')
 
       // CreateSynth has no reliable "ended" event, so schedule a reset based
@@ -125,6 +133,11 @@ export function AbcTune({ abc, title, rhythm }: AbcTuneProps) {
     } catch (err) {
       console.error('Tune playback failed', err)
       resetToIdle()
+      setError(
+        IS_IOS
+          ? "Couldn't play the tune. On iPhone or iPad, check that the silent switch on the side of your device is turned off (no orange showing)."
+          : "Couldn't play the tune in this browser. Please try again."
+      )
     }
   }
 
@@ -173,6 +186,23 @@ export function AbcTune({ abc, title, rhythm }: AbcTuneProps) {
         <p className="inline-flex items-center gap-2 text-base text-muted-foreground">
           <VolumeX aria-hidden="true" className="size-5" />
           Audio playback isn&apos;t supported in this browser.
+        </p>
+      )}
+
+      {error && (
+        <p
+          role="alert"
+          className="flex items-start gap-2 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-base text-amber-900 dark:text-amber-200"
+        >
+          <VolumeX aria-hidden="true" className="mt-0.5 size-5 shrink-0" />
+          {error}
+        </p>
+      )}
+
+      {audioSupported && !error && IS_IOS && (
+        <p className="text-sm text-muted-foreground">
+          On iPhone or iPad, if you don&apos;t hear anything, flip the silent
+          switch on the side of your device off.
         </p>
       )}
     </div>
