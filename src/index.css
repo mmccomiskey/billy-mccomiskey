@@ -156,6 +156,13 @@
     :focus-visible {
         @apply outline-2 outline-offset-2 outline-ring;
     }
+    /* Hide the browser's native search-clear button so we can render our own
+       (SiteHeader) that matches the cream search pill. */
+    input[type='search']::-webkit-search-cancel-button,
+    input[type='search']::-webkit-search-decoration {
+        -webkit-appearance: none;
+        appearance: none;
+    }
 }
 
 /* Bottom safe-area padding utility (mobile gesture bar) */
