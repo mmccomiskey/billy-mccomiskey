@@ -1,21 +1,19 @@
 import { useState } from 'react'
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import { SiteHeader } from '@/components/SiteHeader'
 import { DesktopSidebar, MobileNav } from '@/components/Navigation'
 import { TunesView } from '@/views/TunesView'
 import { AlbumsView } from '@/views/AlbumsView'
 import { AboutView } from '@/views/AboutView'
-import { useTunes } from '@/lib/useTunes'
-import type { View } from '@/lib/nav'
 
 function App() {
-  const [view, setView] = useState<View>('tunes')
   const [query, setQuery] = useState('')
-  const { tunes, loading, error } = useTunes()
+  const navigate = useNavigate()
 
   function handleSearch(value: string) {
     setQuery(value)
     // Searching always surfaces matching tunes, even from another tab.
-    if (value.trim()) setView('tunes')
+    if (value.trim()) navigate('/')
   }
 
   return (
@@ -30,28 +28,21 @@ function App() {
       <SiteHeader query={query} onQueryChange={handleSearch} />
 
       <div className="flex flex-1">
-        <DesktopSidebar active={view} onChange={setView} />
+        <DesktopSidebar />
 
-        <main
-          id="main-content"
-          className="flex-1 px-4 pt-8 pb-28 md:pb-12"
-        >
+        <main id="main-content" className="flex-1 px-4 pt-8 pb-28 md:pb-12">
           <div className="mx-auto w-full max-w-4xl">
-            {view === 'tunes' && (
-              <TunesView
-                tunes={tunes}
-                loading={loading}
-                error={error}
-                query={query}
-              />
-            )}
-            {view === 'albums' && <AlbumsView />}
-            {view === 'about' && <AboutView />}
+            <Routes>
+              <Route path="/" element={<TunesView query={query} />} />
+              <Route path="/albums" element={<AlbumsView />} />
+              <Route path="/about" element={<AboutView />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
           </div>
         </main>
       </div>
 
-      <MobileNav active={view} onChange={setView} />
+      <MobileNav />
     </div>
   )
 }
