@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/dialog'
 import { AbcTune } from '@/components/AbcTune'
 import { NotationNotice } from '@/components/NotationNotice'
+import { TuneNarrative } from '@/components/TuneNarrative'
 
 interface TuneModalProps {
   tune: Tune | null
@@ -58,9 +59,7 @@ export function TuneModal({ tune, open, onOpenChange }: TuneModalProps) {
           <h3 className="font-heading mb-2 text-lg font-semibold text-foreground">
             The Story
           </h3>
-          <p className="text-base leading-relaxed whitespace-pre-line text-foreground/90">
-            {tune.narrative}
-          </p>
+          <TuneNarrative key={tune.id} text={tune.narrative} />
         </section>
 
         <section aria-label="Credits and archival details" className="mt-2">
