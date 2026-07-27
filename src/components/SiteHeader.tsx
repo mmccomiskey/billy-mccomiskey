@@ -49,7 +49,7 @@ export function SiteHeader({ query, onQueryChange }: SiteHeaderProps) {
               autoComplete="off"
               value={query}
               onChange={(e) => onQueryChange(e.target.value)}
-              placeholder="Search tunes by name, rhythm, or key"
+              placeholder="Search by title, type, or key"
               className="h-12 w-full rounded-full border border-[var(--brand-gold-soft)] bg-card pr-11 pl-12 text-base text-card-foreground shadow-[0_2px_10px_rgba(0,0,0,0.25)] outline-none transition-shadow placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
             />
             {query && (
