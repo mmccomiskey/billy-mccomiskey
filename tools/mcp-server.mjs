@@ -24,7 +24,7 @@ import {
 } from '@modelcontextprotocol/sdk/types.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const TUNES_PATH = join(__dirname, '..', 'public', 'data', 'tunes.json')
+const TUNES_PATH = join(__dirname, '..', 'src', 'data', 'tunes.json')
 
 async function loadTunes() {
   const raw = await readFile(TUNES_PATH, 'utf8')

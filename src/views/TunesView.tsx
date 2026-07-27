@@ -1,12 +1,12 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { X } from 'lucide-react'
 import type { Tune } from '@/lib/types'
+import { tunes, getTuneById } from '@/data/tunes'
 import { TuneCard } from '@/components/TuneCard'
 import { TuneModal } from '@/components/TuneModal'
 
 interface TunesViewProps {
-  tunes: Tune[]
-  loading: boolean
-  error: string | null
   query: string
 }
 
@@ -17,18 +17,34 @@ function matchesQuery(tune: Tune, q: string): boolean {
   return haystack.includes(q.toLowerCase())
 }
 
-export function TunesView({ tunes, loading, error, query }: TunesViewProps) {
-  const [selected, setSelected] = useState<Tune | null>(null)
-  const [open, setOpen] = useState(false)
+export function TunesView({ query }: TunesViewProps) {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const tuneParam = searchParams.get('tune')
+  const selected = tuneParam ? getTuneById(tuneParam) : undefined
+  const [notFound, setNotFound] = useState<string | null>(null)
+
+  // A ?tune= that doesn't match any tune: drop the param and let the visitor
+  // know, rather than opening an empty modal. Data is bundled (synchronous),
+  // so there's no loading race to guard against.
+  useEffect(() => {
+    if (tuneParam && !getTuneById(tuneParam)) {
+      setNotFound(tuneParam)
+      setSearchParams({}, { replace: true })
+    }
+  }, [tuneParam, setSearchParams])
 
   const filtered = useMemo(
     () => tunes.filter((t) => matchesQuery(t, query.trim())),
-    [tunes, query]
+    [query]
   )
 
-  function handleOpen(tune: Tune) {
-    setSelected(tune)
-    setOpen(true)
+  function openTune(tune: Tune) {
+    setNotFound(null)
+    setSearchParams({ tune: tune.id })
+  }
+
+  function handleOpenChange(open: boolean) {
+    if (!open) setSearchParams({}, { replace: true })
   }
 
   return (
@@ -40,22 +56,27 @@ export function TunesView({ tunes, loading, error, query }: TunesViewProps) {
         Tune Book
       </h1>
 
-      {loading && (
-        <p className="text-center text-base text-muted-foreground">
-          Loading tunes…
-        </p>
-      )}
-
-      {error && (
-        <p
+      {notFound && (
+        <div
           role="alert"
-          className="rounded-xl bg-destructive/10 p-4 text-center text-base text-destructive"
+          className="mb-6 flex items-start justify-between gap-3 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-base text-amber-900 dark:text-amber-200"
         >
-          {error}
-        </p>
+          <p>
+            We couldn&apos;t find a tune called “{notFound}”. Here are all of
+            them.
+          </p>
+          <button
+            type="button"
+            onClick={() => setNotFound(null)}
+            aria-label="Dismiss"
+            className="shrink-0 rounded-md p-1 outline-none hover:bg-amber-500/20 focus-visible:ring-3 focus-visible:ring-ring/50"
+          >
+            <X aria-hidden="true" className="size-5" />
+          </button>
+        </div>
       )}
 
-      {!loading && !error && filtered.length === 0 && (
+      {filtered.length === 0 && (
         <p className="text-center text-base text-muted-foreground">
           No tunes match “{query}”.
         </p>
@@ -63,11 +84,15 @@ export function TunesView({ tunes, loading, error, query }: TunesViewProps) {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {filtered.map((tune) => (
-          <TuneCard key={tune.id} tune={tune} onOpen={handleOpen} />
+          <TuneCard key={tune.id} tune={tune} onOpen={openTune} />
         ))}
       </div>
 
-      <TuneModal tune={selected} open={open} onOpenChange={setOpen} />
+      <TuneModal
+        tune={selected ?? null}
+        open={!!selected}
+        onOpenChange={handleOpenChange}
+      />
     </section>
   )
 }
