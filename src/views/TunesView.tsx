@@ -1,14 +1,10 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { X } from 'lucide-react'
+import { Search, X } from 'lucide-react'
 import type { Tune } from '@/lib/types'
 import { tunes, getTuneById } from '@/data/tunes'
 import { TuneCard } from '@/components/TuneCard'
 import { TuneModal } from '@/components/TuneModal'
-
-interface TunesViewProps {
-  query: string
-}
 
 function matchesQuery(tune: Tune, q: string): boolean {
   if (!q) return true
@@ -17,11 +13,14 @@ function matchesQuery(tune: Tune, q: string): boolean {
   return haystack.includes(q.toLowerCase())
 }
 
-export function TunesView({ query }: TunesViewProps) {
+export function TunesView() {
   const [searchParams, setSearchParams] = useSearchParams()
   const tuneParam = searchParams.get('tune')
   const selected = tuneParam ? getTuneById(tuneParam) : undefined
   const [notFound, setNotFound] = useState<string | null>(null)
+
+  const [query, setQuery] = useState('')
+  const searchRef = useRef<HTMLInputElement>(null)
 
   // A ?tune= that doesn't match any tune: drop the param and let the visitor
   // know, rather than opening an empty modal. Data is bundled (synchronous),
@@ -47,6 +46,11 @@ export function TunesView({ query }: TunesViewProps) {
     if (!open) setSearchParams({}, { replace: true })
   }
 
+  function clearSearch() {
+    setQuery('')
+    searchRef.current?.focus()
+  }
+
   return (
     <section aria-labelledby="tunes-heading">
       <h1
@@ -55,6 +59,45 @@ export function TunesView({ query }: TunesViewProps) {
       >
         Tune Book
       </h1>
+
+      <div className="sticky top-0 z-20 mb-8 bg-background/90 py-3 backdrop-blur-sm">
+        <form
+          role="search"
+          className="mx-auto w-full max-w-xl"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <label htmlFor="tune-search" className="sr-only">
+            Search the tune book
+          </label>
+          <div className="relative">
+            <Search
+              aria-hidden="true"
+              className="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2 text-muted-foreground"
+            />
+            <input
+              ref={searchRef}
+              id="tune-search"
+              type="search"
+              inputMode="search"
+              autoComplete="off"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by title, type, or key"
+              className="h-12 w-full rounded-full border border-input bg-card pr-11 pl-12 text-base text-foreground shadow-sm outline-none transition-shadow placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={clearSearch}
+                aria-label="Clear search"
+                className="absolute top-1/2 right-2.5 -translate-y-1/2 rounded-full p-1.5 text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/60"
+              >
+                <X aria-hidden="true" className="size-4" />
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
 
       {notFound && (
         <div
