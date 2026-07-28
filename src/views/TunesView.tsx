@@ -60,7 +60,7 @@ export function TunesView() {
         Tune Book
       </h1>
 
-      <div className="sticky top-0 z-20 -mx-4 bg-background px-4 pt-3 pb-8">
+      <div className="sticky top-0 z-20 -mx-4 mb-2 bg-background px-4 pt-3 pb-8">
         <form
           role="search"
           className="mx-auto w-full max-w-xl"
