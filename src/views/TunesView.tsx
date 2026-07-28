@@ -83,7 +83,7 @@ export function TunesView() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search by title, type, or key"
-              className="h-12 w-full rounded-full border border-input bg-card pr-11 pl-12 text-base text-foreground shadow-sm outline-none transition-shadow placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+              className="h-12 w-full rounded-full bg-card pr-11 pl-12 text-base text-foreground ring-1 ring-foreground/10 outline-none transition-shadow placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/60"
             />
             {query && (
               <button
