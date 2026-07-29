@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/postbuild.mjs",
+    "build": "node scripts/generate-llms.mjs && tsc -b && vite build && node scripts/postbuild.mjs",
+    "generate:llms": "node scripts/generate-llms.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
     "mcp": "node tools/mcp-server.mjs"

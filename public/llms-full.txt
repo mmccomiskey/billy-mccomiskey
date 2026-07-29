@@ -1,0 +1,184 @@
+# Billy McComiskey — Original Compositions (Full Catalog)
+
+> Complete, machine-readable catalog generated from the archive dataset. For the
+> concise index and schema see https://mmccomiskey.github.io/billy-mccomiskey/llms.txt; for structured data see
+> https://mmccomiskey.github.io/billy-mccomiskey/data/tunes.json.
+
+## Perpetual Light
+
+- **Type:** air
+- **Key:** G
+- **ID:** `perpetual-light`
+- **Notation source:** placeholder
+- **Composer:** Billy McComiskey
+- **Editor:** Peter
+- **Collection:** The Billy McComiskey Compositions Archive
+- **Rights holder:** Billy McComiskey
+- **Recording date:** 2020
+- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=perpetual-light
+
+### Story
+
+At the beginning of the COVID-19 epidemic in 2020, The Irish Arts Center in New York commissioned Billy to compose an air and a reel. Billy composed Perpetual Light in honor of the people who lost their lives to COVID-19. The title references Requiem aeternam, a Catholic prayer from the Liturgy of the Hours: Eternal rest grant unto them, O Lord, And let perpetual light shine upon them. May they rest in peace. Amen.
+
+### ABC notation
+
+```abc
+X:1
+T:Perpetual Light
+C:Billy McComiskey
+R:air
+M:4/4
+L:1/8
+Q:1/4=66
+K:G
+"G"G3A B2A2|"C"c3B A2G2|"G"B2A2 G2E2|"D"D6 z2|
+"G"G3A B2d2|"C"c3d e2d2|"Em"e2d2 "D"B2A2|"G"G6 z2|]
+```
+
+---
+
+## Clear as Mud
+
+- **Type:** reel
+- **Key:** G
+- **ID:** `clear-as-mud`
+- **Notation source:** placeholder
+- **Composer:** Billy McComiskey
+- **Editor:** Peter
+- **Collection:** The Billy McComiskey Compositions Archive
+- **Rights holder:** Billy McComiskey
+- **Recording date:** n.d.
+- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=clear-as-mud
+
+### Story
+
+This was a phrase Billy's mother, Mae McComiskey would use if she was having trouble understanding something. You may hear bits of Johnny Allen, Sporting Nell and Spike Island Lasses floating around in this tune. While he was in the process of composing this one, Billy thought it sounded kind of messy, and no one would like it or learn it, so he called it Clear as Mud. However, it turns out that people do like it and are learning it around Maryland.
+
+### ABC notation
+
+```abc
+X:1
+T:Clear as Mud
+C:Billy McComiskey
+R:reel
+M:C|
+L:1/8
+K:G
+|:"G"GABc dBGB|"C"ABcA GEDE|"G"GABc dgba|"D"gedB "G"A2GA:|
+|:"G"Bdgd bdgd|"C"eaag egdB|"G"GABc dgba|"D"gedB "G"G4:|
+```
+
+---
+
+## The Controversial
+
+- **Type:** reel
+- **Key:** G
+- **ID:** `the-controversial`
+- **Notation source:** thesession (https://thesession.org/tunes/3131)
+- **Composer:** Billy McComiskey
+- **Editor:** Peter
+- **Collection:** The Billy McComiskey Compositions Archive
+- **Rights holder:** Billy McComiskey
+- **Recording date:** c. 1970
+- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=the-controversial
+
+### Story
+
+Billy first titled this tune Maureen Glynn's. Maureen, born in Brooklyn, was a gifted pianist. Her father, John Glynn, had emigrated from Galway and worked as a New York City bus driver. When Irish music schools began emerging in the city, John started one himself and acquired Paolo Soprani accordions for the kids. After John died, Maureen was heartbroken. At a bar in Bay Ridge after the funeral, she scoffed when Billy offered to teach her the accordion—so Billy instead wrote this tune for her. After taking second place at the 1970 All-Ireland Fleadh, he was encouraged to return and compete the following year. He had been prepared to perform Maureen Glynn's there but he arrived to find the Fleadh cancelled due to bombings in Northern Ireland. Stranded in Ireland, he visited Tullamore and played Maureen Glynn's for Ellen Flanagan of the Bridge Céilí Band. She loved it and shared it widely throughout County Offaly. Years later, Tommy Maguire—a County Offaly born and raised accordion player, All-Ireland champion, and immigrant to Chicago—recorded it with the great Liz Carroll. Billy only learned his tune was on their album when his close friend Myron Bretholz played the track and said, 'The first tune is called The Controversial Reel.' Billy immediately phoned Liz to ask why it had been renamed. Liz knew Billy had composed it, but Tommy believed he'd learned a traditional tune back home in Offaly. To settle the dispute, they decided to call it The Controversial Reel.
+
+### ABC notation
+
+```abc
+X:1
+T:The Controversial
+C:Billy McComiskey
+R:reel
+M:C|
+L:1/8
+K:G
+|:B3 e dB B2|gabg abge|d2 Bd gedB|A2 GB ABGA|
+Bdde dB B2|gabg abge|dGBd gedB|GBAF G2 GA:|
+|:BddB A2 BA|GEDE GABd|eaaf gedB|GBdB A2 GA|
+BddB AdBA|GEDE GABd|bgaf gedB|GBAF G4:|
+```
+
+---
+
+## Ohm's Law
+
+- **Type:** jig
+- **Key:** D
+- **ID:** `ohms-law`
+- **Notation source:** thesession (https://thesession.org/tunes/20915)
+- **Composer:** Billy McComiskey
+- **Editor:** Peter
+- **Collection:** The Billy McComiskey Compositions Archive
+- **Rights holder:** Billy McComiskey
+- **Recording date:** 1995
+- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=ohms-law
+
+### Story
+
+Ohm's Law is a formula used to calculate the relationship between voltage, current and resistance in an electrical circuit. Billy composed his reel, Ohm's Law, c. 1980 while he was attending RETS Trade School studying electricity and wiring. For Billy, Ohm's Law embodied the end of his musical ambitions in favor of obtaining steady employment. Afterward, from 1982 to 2015, he worked a full-time job in maintenance, specializing in electrical repairs. Billy recorded Ohm's Law on Trian II (1995) with Liz Carroll and Dáithí Sproule.
+
+### ABC notation
+
+```abc
+X:1
+T:Ohm's Law
+C:Billy McComiskey
+R:jig
+M:6/8
+L:1/8
+K:D
+|:A3 FAd|FAd f2 a|bgb afd|ege fdB|
+A2 A FAd|FAd f2 a|bgb afd|gec d3:|
+e3 Beg|Beg fdB|e3 Beg|bgb afd|
+e3 Beg|Beg fdB|AFA A2 d|fbf afd:|
+gfg edB|GBG AFD|B,DG Bdg|afd afd|
+gfg edB|GBG AFD|B,DG BdB|=cAF G3:|
+```
+
+---
+
+## The Diamond
+
+- **Type:** waltz
+- **Key:** D
+- **ID:** `the-diamond`
+- **Notation source:** thesession (https://thesession.org/tunes/13206)
+- **Composer:** Billy McComiskey
+- **Story by:** Dan Isaacson
+- **Editor:** Peter
+- **Collection:** The Billy McComiskey Compositions Archive
+- **Rights holder:** Billy McComiskey
+- **Recording date:** n.d.
+- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=the-diamond
+
+### Story
+
+My great-great-great grandfather was a poor cobbler who lived in the foothills of the Carpathian Mountains in Transylvania. I'm told that it was then (and is now) a rural, isolated place, with a bit of a reputation for lawlessness. The story goes that late one night there was a loud banging at the door. It was a group of bandits. They were on the run. They had a large chest, too heavy for them to carry. The bandits informed my ancestor, whose name we do not know, that they would be hiding the chest with him. They said that if he so much as looked inside, they would kill him. They never came back. The chest turned out to be filled with money and jewels. My great-great-great grandfather bought land. He planted orchards and vineyards. He made wine and palinka, the home-brewed liquor of the region. He was considered quite wealthy for the time and the place. When my great-grandmother got engaged, her father gave her a pair of diamond earrings as an engagement present. Sadly, her fiancée was killed in the First World War. She married his brother. I am told this type of arrangement wasn't uncommon at the time. She became Mrs. Zelfruend, a surname that means 'soul friend'. Everyone knew about Mrs. Zelfruend's diamond earrings. During the Second World War, when the Germans came and started confiscating Jewish property, my great-grandmother sent her earrings to a cousin several villages away who was a jeweler. He replaced the diamonds with glass. The Germans took them. She had buried the real diamonds along with the other family valuables beneath the barn. She showed each of her six young daughters where the diamonds were buried in case something happened. What happened was Auschwitz. My great-grandparents, three of their daughters, and several of their daughters' husbands and children were murdered during the war. To the best of my limited knowledge, we do not have an exact count of the dead. My grandmother and her two younger sisters survived. When they returned home as teenagers, they dug up the valuables from under the barn. They sold some of the family jewels in order to buy platform shoes, which were apparently all the rage in Transylvania at the time, but they kept the diamonds. My grandmother took one, her next-younger sister took the other. When she had to get some dental work done, my grandmother had her diamond hidden in a bridge in her teeth. Later, when they were able to escape Transylvania, she sewed it into the elastic of some underwear. Before moving to New York in 1964, my grandparents first went to Colombia in South America. When they got there, my grandmother commissioned herself a late engagement ring with her diamond. She and my grandfather had been married for around 15 years and had two children. My grandmother never wore this ring. She kept it hidden under the couch, in case something happened. Kelly and I had been together for about three years when she secretly plotted an adventure with some of my best friends, which involved our travelling halfway around the globe. When we got home, I asked my mother if we had any engagement rings floating around the family. That was the first time I heard the stories about the diamond. I was about 33. There was no talk of orchards and vineyards when I was growing up. I had never heard the story about the bandits and the treasure chest. I was the first person in my mother's family born in the US. I grew up hearing stories about my grandparents' experiences during the Holocaust, but they talked very little to me about their lives before the war. I think it was too painful for them. My grandmother planned to leave her diamond to my mother, who planned to leave it to my sister. All three of them agreed that they would instead give it to me, so that I could give it to Kelly. The setting for the ring my grandmother had was broken, possibly from being hidden beneath a couch for decades. I commissioned a new one. While it was being made, I asked Billy McComiskey to compose a waltz for Kelly and myself as part of the engagement present. I told him the story of the diamond, which I had only recently heard myself. Billy gamely agreed. He called the tune The Diamond. The first time I heard it, before the new ring was finished, he lilted it to me, in a parking lot, outside a weird gig in a high school gym. He recorded it on his first solo album in 30 years, Outside the Box. The Diamond has turned out to be one of his most popular compositions. He likes to send me videos of people he's never met playing it, and to tell me stories about the unlikely places where it's turned up. Billy has, several times, suggested my writing this story down. Several times. Friends who have asked me for the real story have told me in no uncertain terms that they like Billy's version better. In putting it in writing, I'd like to dedicate it to Billy, in return for his kindness in 'making up' (his phrasing) our tune for us. Whenever we hear it, it reminds us of better times, before the COVID-19 pandemic and all the craziness that ensued. 18 years ago today, almost to the hour as I finish writing all this down, Kelly and I met under a leaky roof in Locust Point, at J. Patrick's Irish Pub.
+
+### ABC notation
+
+```abc
+X:1
+T:The Diamond
+C:Billy McComiskey
+R:waltz
+M:3/4
+L:1/8
+K:D
+|:AG|"D"F2 d3 F|"G"G3 B AG|"D"FA de fg|"D"a2 f3d|"Bm"B3 c d2|"D"A2 d2 F2|"Em"G2 E3 F|"Em"G3 E
+AG|"D"F2 d3 F|"G"G3 B AG|"D"FA de fg|"D"a2 f3d|"Bm"B3 c d2|"D"A2 d2 (3EFG|"D"F2 D3 D|1 "D"D4:|2 D2 "D"D2||
+|:FG|"D"A2 a3 a|"D"a4 ga|"Em"b2 e3 e|"A"e4 ag|"D"fg ab af|"Em"gf e3 d|"F#m"c2 A3 B|"D"A3 G|
+[1 "D"FG|"D"A2 a3 a|"D"a3 b/a/ ga|"Em"b2 e3 e|"A"e4 fe|"D"d3 c A2|"G"G2 F2 G2|"D"A2 d3 d|"D"d3 G:|
+[2 FG|"D"AD FA de|"D"fg ab af|"Em"bg e2 e2|"A"e4 fe|"D"d3 c A2|"G"G2 F2 G2|"D"A2 d3 d|d4||
+```
+
+## License & attribution
+
+Compositions © Billy McComiskey. Please retain composer and story credits when
+reusing any material from this archive.
