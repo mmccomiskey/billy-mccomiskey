@@ -1,0 +1,123 @@
+[
+  {
+    "id": "catchin-the-tune",
+    "title": "Catchin' the Tune",
+    "year": 1976,
+    "artist": "The Irish Tradition",
+    "role": "member",
+    "label": "A.Y. Productions (reissued by Smithsonian Folkways)",
+    "personnel": "Brendan Mulvihill, Billy McComiskey, Andy O'Brien",
+    "notes": "The Irish Tradition's debut album.",
+    "links": {
+      "bandcamp": "https://smithsonianfolkways.bandcamp.com/album/vol-1-catchin-the-tune"
+    }
+  },
+  {
+    "id": "the-corner-house",
+    "title": "The Corner House",
+    "year": 1978,
+    "artist": "The Irish Tradition",
+    "role": "member",
+    "label": "Green Linnet",
+    "personnel": "Brendan Mulvihill, Billy McComiskey, Andy O'Brien",
+    "notes": "Produced by Mick Moloney, who also plays on the record.",
+    "links": {
+      "compass": "https://compassrecords.com/artist/irish-tradition/"
+    }
+  },
+  {
+    "id": "makin-the-rounds",
+    "title": "Makin' the Rounds",
+    "year": 1981,
+    "artist": "Billy McComiskey",
+    "role": "solo",
+    "label": "Green Linnet (reissued by Compass)",
+    "personnel": "with Andy O'Brien; accordion duets with Sean McGlynn",
+    "notes": "Billy's debut solo album.",
+    "links": {
+      "compass": "https://store.compassrecords.com/products/makin-the-rounds",
+      "discogs": "https://www.discogs.com/release/5457707-Billy-McComiskey-Makin-The-Rounds"
+    }
+  },
+  {
+    "id": "the-times-weve-had",
+    "title": "The Times We've Had",
+    "year": 1985,
+    "artist": "The Irish Tradition",
+    "role": "member",
+    "label": "Green Linnet",
+    "personnel": "Brendan Mulvihill, Billy McComiskey, Andy O'Brien",
+    "notes": "Produced by Mick Moloney.",
+    "links": {
+      "allmusic": "https://www.allmusic.com/album/the-times-weve-had-mw0000078625"
+    }
+  },
+  {
+    "id": "trian",
+    "title": "Trian",
+    "year": 1992,
+    "artist": "Trian",
+    "role": "member",
+    "label": "Flying Fish",
+    "personnel": "Liz Carroll, Billy McComiskey, Dáithí Sproule",
+    "notes": "The trio's debut.",
+    "links": {
+      "discogs": "https://www.discogs.com/release/5501102-Trian-Trian"
+    }
+  },
+  {
+    "id": "trian-ii",
+    "title": "Trian II",
+    "year": 1995,
+    "artist": "Trian",
+    "role": "member",
+    "label": "Green Linnet",
+    "personnel": "Liz Carroll, Billy McComiskey, Dáithí Sproule; guest Tríona Ní Dhomhnaill",
+    "notes": "",
+    "links": {
+      "compass": "https://store.compassrecords.com/products/trian-ii",
+      "discogs": "https://www.discogs.com/release/4172967-Trian-Trian-II"
+    }
+  },
+  {
+    "id": "outside-the-box",
+    "title": "Outside the Box",
+    "year": 2008,
+    "artist": "Billy McComiskey",
+    "role": "solo",
+    "label": "Compass Records",
+    "personnel": "with Sean McComiskey (accordion), John Doyle (guitar)",
+    "notes": "Irish Echo Album of the Year, and Billy's first solo record in about 25 years.",
+    "links": {
+      "allmusic": "https://www.allmusic.com/album/outside-the-box-mw0000794559"
+    }
+  },
+  {
+    "id": "absolutely-irish",
+    "title": "Absolutely Irish",
+    "year": 2008,
+    "artist": "Various Artists (a Mick Moloney project)",
+    "role": "guest",
+    "label": "Compass Records",
+    "personnel": "Mick Moloney, Billy McComiskey, Liz Carroll, John Doyle, Joanie Madden, Eileen Ivers, Karan Casey, and others",
+    "notes": "Companion to the public-television film, from a 2007 Irish Arts Center concert in New York.",
+    "links": {
+      "compass": "https://store.compassrecords.com/collections/cd/products/absolutely-irish",
+      "allmusic": "https://www.allmusic.com/album/absolutely-irish-mw0000794552"
+    }
+  },
+  {
+    "id": "green-fields-of-america",
+    "title": "The Green Fields of America",
+    "year": 2009,
+    "artist": "Mick Moloney & Billy McComiskey with the Green Fields of America",
+    "role": "ensemble",
+    "label": "Compass Records",
+    "personnel": "Mick Moloney, Billy McComiskey, Robbie O'Connell, Athena Tergis, John Doyle, and guests",
+    "notes": "Produced by John Doyle and Mick Moloney.",
+    "links": {
+      "compass": "https://compassrecords.com/artist/green-fields-of-america/",
+      "discogs": "https://www.discogs.com/release/6137844-The-Green-Fields-Of-America-The-Green-Fields-Of-America"
+    }
+  }
+]
