@@ -4,12 +4,11 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
-// base is '/billy-mccomiskey/' for the github.io project page
-// (https://mmccomiskey.github.io/billy-mccomiskey/). If you later point a custom
-// domain (e.g. billymccomiskey.com) at Pages, add a public/CNAME file and change
-// this back to '/'.
+// base is '/' because the site is served at the root of a custom domain
+// (beta.billymccomiskey.com, later billymccomiskey.com), set via public/CNAME.
+// On the old github.io project page this was '/billy-mccomiskey/'.
 export default defineConfig({
-  base: '/billy-mccomiskey/',
+  base: '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

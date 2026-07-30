@@ -1,8 +1,8 @@
 # Billy McComiskey — Original Compositions (Full Catalog)
 
 > Complete, machine-readable catalog generated from the archive dataset. For the
-> concise index and schema see https://mmccomiskey.github.io/billy-mccomiskey/llms.txt; for structured data see
-> https://mmccomiskey.github.io/billy-mccomiskey/data/tunes.json.
+> concise index and schema see https://beta.billymccomiskey.com/llms.txt; for structured data see
+> https://beta.billymccomiskey.com/data/tunes.json.
 
 ## Perpetual Light
 
@@ -15,7 +15,7 @@
 - **Collection:** The Billy McComiskey Compositions Archive
 - **Rights holder:** Billy McComiskey
 - **Recording date:** 2020
-- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=perpetual-light
+- **Link:** https://beta.billymccomiskey.com/?tune=perpetual-light
 
 ### Story
 
@@ -49,7 +49,7 @@ K:G
 - **Collection:** The Billy McComiskey Compositions Archive
 - **Rights holder:** Billy McComiskey
 - **Recording date:** n.d.
-- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=clear-as-mud
+- **Link:** https://beta.billymccomiskey.com/?tune=clear-as-mud
 
 ### Story
 
@@ -82,7 +82,7 @@ K:G
 - **Collection:** The Billy McComiskey Compositions Archive
 - **Rights holder:** Billy McComiskey
 - **Recording date:** c. 1970
-- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=the-controversial
+- **Link:** https://beta.billymccomiskey.com/?tune=the-controversial
 
 ### Story
 
@@ -117,7 +117,7 @@ BddB AdBA|GEDE GABd|bgaf gedB|GBAF G4:|
 - **Collection:** The Billy McComiskey Compositions Archive
 - **Rights holder:** Billy McComiskey
 - **Recording date:** 1995
-- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=ohms-law
+- **Link:** https://beta.billymccomiskey.com/?tune=ohms-law
 
 ### Story
 
@@ -155,7 +155,7 @@ gfg edB|GBG AFD|B,DG BdB|=cAF G3:|
 - **Collection:** The Billy McComiskey Compositions Archive
 - **Rights holder:** Billy McComiskey
 - **Recording date:** n.d.
-- **Link:** https://mmccomiskey.github.io/billy-mccomiskey/?tune=the-diamond
+- **Link:** https://beta.billymccomiskey.com/?tune=the-diamond
 
 ### Story
 
