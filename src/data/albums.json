@@ -119,5 +119,18 @@
       "compass": "https://compassrecords.com/artist/green-fields-of-america/",
       "discogs": "https://www.discogs.com/release/6137844-The-Green-Fields-Of-America-The-Green-Fields-Of-America"
     }
+  },
+  {
+    "id": "pride-of-new-york",
+    "title": "The Pride of New York",
+    "year": 2009,
+    "artist": "The Pride of New York",
+    "role": "member",
+    "label": "Compass Records",
+    "personnel": "Joanie Madden (flute, whistle), Brian Conway (fiddle), Billy McComiskey (accordion), Brendan Dolan (piano)",
+    "notes": "A New York Irish supergroup of All-Ireland champions.",
+    "links": {
+      "compass": "https://store.compassrecords.com/products/pride-of-new-york"
+    }
   }
 ]
