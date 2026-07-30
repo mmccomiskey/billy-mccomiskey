@@ -63,3 +63,42 @@ export interface Tune {
   /** Link to the source transcription, when applicable. */
   notationSourceUrl?: string
 }
+
+/** Billy's involvement on an album. */
+export type AlbumRole = 'solo' | 'member' | 'ensemble' | 'guest'
+
+/**
+ * Outbound links for an album. Albums are external releases (not content this
+ * site hosts), so the card links out to listen or buy rather than embedding.
+ */
+export interface AlbumLinks {
+  bandcamp?: string
+  spotify?: string
+  appleMusic?: string
+  /** Label / store page (Compass, etc.). */
+  compass?: string
+  discogs?: string
+  allmusic?: string
+}
+
+/** A record Billy appears on — solo, with a band, or as a guest. */
+export interface Album {
+  /** URL-safe stable identifier (kebab-case). */
+  id: string
+  /** Album title, e.g. "Outside the Box". */
+  title: string
+  /** Release year. */
+  year: number
+  /** Who the record is billed under (artist, band, or collaboration). */
+  artist: string
+  /** Billy's involvement. */
+  role: AlbumRole
+  /** Record label. */
+  label: string
+  /** Key players, when noteworthy. */
+  personnel?: string
+  /** Short editorial note (producer, award, context). */
+  notes?: string
+  /** Outbound listen/buy/reference links. */
+  links: AlbumLinks
+}
