@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 
-// import.meta.env.BASE_URL is '/billy-mccomiskey/'; react-router wants the
-// basename without a trailing slash.
+// Derive the router basename from Vite's BASE_URL (trailing slash stripped).
+// At a custom-domain root BASE_URL is '/', so basename becomes '' (root).
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 createRoot(document.getElementById('root')!).render(

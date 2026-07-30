@@ -19,11 +19,10 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = join(root, 'public')
 
 /**
- * Public base URL of the deployed site. If a custom domain is added later
- * (e.g. https://billymccomiskey.com with Vite `base` back to '/'), change this
- * one constant.
+ * Public base URL of the deployed site. When the archive moves to the apex
+ * (https://billymccomiskey.com), change this one constant.
  */
-const SITE = 'https://mmccomiskey.github.io/billy-mccomiskey'
+const SITE = 'https://beta.billymccomiskey.com'
 
 const tunes = JSON.parse(
   await readFile(join(root, 'src', 'data', 'tunes.json'), 'utf8')

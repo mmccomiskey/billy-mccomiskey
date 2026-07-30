@@ -11,16 +11,16 @@ and archival ingest tools such as the Irish Traditional Music Archive, ITMA).
 
 ## Compositions (5)
 
-- [Perpetual Light (air, G)](https://mmccomiskey.github.io/billy-mccomiskey/?tune=perpetual-light) — At the beginning of the COVID-19 epidemic in 2020, The Irish Arts Center in New York commissioned Billy to compose an air and a reel. _(placeholder notation)_
-- [Clear as Mud (reel, G)](https://mmccomiskey.github.io/billy-mccomiskey/?tune=clear-as-mud) — This was a phrase Billy's mother, Mae McComiskey would use if she was having trouble understanding something. _(placeholder notation)_
-- [The Controversial (reel, G)](https://mmccomiskey.github.io/billy-mccomiskey/?tune=the-controversial) — Billy first titled this tune Maureen Glynn's.
-- [Ohm's Law (jig, D)](https://mmccomiskey.github.io/billy-mccomiskey/?tune=ohms-law) — Ohm's Law is a formula used to calculate the relationship between voltage, current and resistance in an electrical circuit.
-- [The Diamond (waltz, D)](https://mmccomiskey.github.io/billy-mccomiskey/?tune=the-diamond) — My great-great-great grandfather was a poor cobbler who lived in the foothills of the Carpathian Mountains in Transylvania.
+- [Perpetual Light (air, G)](https://beta.billymccomiskey.com/?tune=perpetual-light) — At the beginning of the COVID-19 epidemic in 2020, The Irish Arts Center in New York commissioned Billy to compose an air and a reel. _(placeholder notation)_
+- [Clear as Mud (reel, G)](https://beta.billymccomiskey.com/?tune=clear-as-mud) — This was a phrase Billy's mother, Mae McComiskey would use if she was having trouble understanding something. _(placeholder notation)_
+- [The Controversial (reel, G)](https://beta.billymccomiskey.com/?tune=the-controversial) — Billy first titled this tune Maureen Glynn's.
+- [Ohm's Law (jig, D)](https://beta.billymccomiskey.com/?tune=ohms-law) — Ohm's Law is a formula used to calculate the relationship between voltage, current and resistance in an electrical circuit.
+- [The Diamond (waltz, D)](https://beta.billymccomiskey.com/?tune=the-diamond) — My great-great-great grandfather was a poor cobbler who lived in the foothills of the Carpathian Mountains in Transylvania.
 
 ## Full data
 
-- Structured JSON (canonical): https://mmccomiskey.github.io/billy-mccomiskey/data/tunes.json
-- Full catalog in markdown (stories + notation): https://mmccomiskey.github.io/billy-mccomiskey/llms-full.txt
+- Structured JSON (canonical): https://beta.billymccomiskey.com/data/tunes.json
+- Full catalog in markdown (stories + notation): https://beta.billymccomiskey.com/llms-full.txt
 
 ## Data model: `Tune`
 
