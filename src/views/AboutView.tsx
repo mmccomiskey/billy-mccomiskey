@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import { MessageSquarePlus, Mail } from 'lucide-react'
+import { Send, Loader2, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import {
-  buildGithubIssueUrl,
-  buildMailtoUrl,
-  CONTACT_EMAIL,
-} from '@/lib/config'
+import { CONTACT_EMAIL } from '@/lib/config'
+
+/** Same-origin Worker endpoint (see cloudflare/feedback-worker). */
+const FEEDBACK_ENDPOINT = '/api/feedback'
 
 const FAQ: { q: string; a: string }[] = [
   {
@@ -32,41 +31,48 @@ const CATEGORIES = [
   { value: 'suggestion', label: 'A suggestion or idea' },
 ] as const
 
+type Status = 'idle' | 'submitting' | 'success' | 'error'
+
 export function AboutView() {
   const [category, setCategory] =
     useState<(typeof CATEGORIES)[number]['value']>('correction')
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
-
-  const categoryLabel =
-    CATEGORIES.find((c) => c.value === category)?.label ?? category
-
-  function issuePayload() {
-    const title = `[${category}] Feedback from ${name || 'a visitor'}`
-    const body = [
-      `**Type:** ${categoryLabel}`,
-      `**From:** ${name || '(not provided)'}`,
-      '',
-      message,
-    ].join('\n')
-    return { title, body }
-  }
-
-  function handleGithub() {
-    const { title, body } = issuePayload()
-    window.open(
-      buildGithubIssueUrl({ title, body, labels: [category, 'feedback'] }),
-      '_blank',
-      'noopener,noreferrer'
-    )
-  }
-
-  function handleEmail() {
-    const { title, body } = issuePayload()
-    window.location.href = buildMailtoUrl({ subject: title, body })
-  }
+  const [website, setWebsite] = useState('') // honeypot — real people leave it empty
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const canSubmit = message.trim().length > 0
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (status === 'submitting' || !canSubmit) return
+    setStatus('submitting')
+    setErrorMsg('')
+    try {
+      const res = await fetch(FEEDBACK_ENDPOINT, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ name, category, message, website }),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (res.ok && data.ok) {
+        setStatus('success')
+        setName('')
+        setMessage('')
+      } else {
+        setStatus('error')
+        setErrorMsg(
+          data.error || 'Something went wrong. Please try again in a moment.'
+        )
+      }
+    } catch {
+      setStatus('error')
+      setErrorMsg(
+        `Couldn't reach the server. Please try again, or email ${CONTACT_EMAIL}.`
+      )
+    }
+  }
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col gap-10">
@@ -117,107 +123,151 @@ export function AboutView() {
         >
           Send Feedback
         </h2>
-        <p className="mb-5 text-base text-muted-foreground">
-          Spotted a mistake or have an idea? Fill this in and choose how to send
-          it. Nothing is sent until you tap a send button.
-        </p>
 
-        <form
-          className="flex flex-col gap-5"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="fb-category"
-              className="text-base font-semibold text-foreground"
-            >
-              What kind of feedback is this?
-            </label>
-            <select
-              id="fb-category"
-              value={category}
-              onChange={(e) =>
-                setCategory(
-                  e.target.value as (typeof CATEGORIES)[number]['value']
-                )
-              }
-              className="h-12 rounded-xl border border-input bg-card px-4 text-base text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
-            >
-              {CATEGORIES.map((c) => (
-                <option key={c.value} value={c.value}>
-                  {c.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="fb-name"
-              className="text-base font-semibold text-foreground"
-            >
-              Your name (optional)
-            </label>
-            <input
-              id="fb-name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              autoComplete="name"
-              className="h-12 rounded-xl border border-input bg-card px-4 text-base text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+        {status === 'success' ? (
+          <div className="rounded-xl bg-card p-6 text-center ring-1 ring-foreground/10">
+            <CheckCircle2
+              aria-hidden="true"
+              className="mx-auto size-9 text-primary"
             />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="fb-message"
-              className="text-base font-semibold text-foreground"
-            >
-              Your message
-            </label>
-            <textarea
-              id="fb-message"
-              required
-              rows={5}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Tell us what you noticed…"
-              className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
-            />
-          </div>
-
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Button
+            <p className="mt-3 text-lg font-semibold text-foreground">
+              Thanks, that&apos;s been sent.
+            </p>
+            <p className="mt-1 text-base text-muted-foreground">
+              We read every note. Appreciate you taking the time.
+            </p>
+            <button
               type="button"
-              onClick={handleGithub}
-              disabled={!canSubmit}
-              className="h-12 flex-1 gap-2 text-base"
+              onClick={() => setStatus('idle')}
+              className="mt-4 rounded text-base font-semibold text-primary underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
             >
-              <MessageSquarePlus aria-hidden="true" className="size-5" />
-              Send via GitHub
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              onClick={handleEmail}
-              disabled={!canSubmit}
-              className="h-12 flex-1 gap-2 text-base"
-            >
-              <Mail aria-hidden="true" className="size-5" />
-              Send via Email
-            </Button>
+              Send more feedback
+            </button>
           </div>
-          <p className="text-sm text-muted-foreground">
-            Prefer email? Write to{' '}
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="font-medium text-foreground underline underline-offset-2"
-            >
-              {CONTACT_EMAIL}
-            </a>
-            .
-          </p>
-        </form>
+        ) : (
+          <>
+            <p className="mb-5 text-base text-muted-foreground">
+              Spotted a mistake or have an idea? Send it straight to the archive
+              — no account needed.
+            </p>
+
+            <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="fb-category"
+                  className="text-base font-semibold text-foreground"
+                >
+                  What kind of feedback is this?
+                </label>
+                <select
+                  id="fb-category"
+                  value={category}
+                  onChange={(e) =>
+                    setCategory(
+                      e.target.value as (typeof CATEGORIES)[number]['value']
+                    )
+                  }
+                  className="h-12 rounded-xl border border-input bg-card px-4 text-base text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                >
+                  {CATEGORIES.map((c) => (
+                    <option key={c.value} value={c.value}>
+                      {c.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="fb-name"
+                  className="text-base font-semibold text-foreground"
+                >
+                  Your name (optional)
+                </label>
+                <input
+                  id="fb-name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  autoComplete="name"
+                  className="h-12 rounded-xl border border-input bg-card px-4 text-base text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="fb-message"
+                  className="text-base font-semibold text-foreground"
+                >
+                  Your message
+                </label>
+                <textarea
+                  id="fb-message"
+                  required
+                  rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell us what you noticed…"
+                  className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                />
+              </div>
+
+              {/* Honeypot: hidden from people, tempting to bots. */}
+              <div
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-9999px' }}
+              >
+                <label htmlFor="fb-website">Leave this field empty</label>
+                <input
+                  id="fb-website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
+
+              {status === 'error' && (
+                <p
+                  role="alert"
+                  className="rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-base text-amber-900 dark:text-amber-200"
+                >
+                  {errorMsg}
+                </p>
+              )}
+
+              <Button
+                type="submit"
+                disabled={!canSubmit || status === 'submitting'}
+                className="h-12 gap-2 text-base"
+              >
+                {status === 'submitting' ? (
+                  <>
+                    <Loader2 aria-hidden="true" className="size-5 animate-spin" />
+                    Sending…
+                  </>
+                ) : (
+                  <>
+                    <Send aria-hidden="true" className="size-5" />
+                    Send feedback
+                  </>
+                )}
+              </Button>
+
+              <p className="text-sm text-muted-foreground">
+                Prefer email? Write to{' '}
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="font-medium text-foreground underline underline-offset-2"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+                .
+              </p>
+            </form>
+          </>
+        )}
       </section>
     </div>
   )
