@@ -5,13 +5,7 @@ import type { Tune } from '@/lib/types'
 import { tunes, getTuneById } from '@/data/tunes'
 import { TuneCard } from '@/components/TuneCard'
 import { TuneModal } from '@/components/TuneModal'
-
-function matchesQuery(tune: Tune, q: string): boolean {
-  if (!q) return true
-  const haystack =
-    `${tune.title} ${tune.rhythm} ${tune.key} ${tune.narrative}`.toLowerCase()
-  return haystack.includes(q.toLowerCase())
-}
+import { matchesQuery } from '@/lib/search'
 
 export function TunesView() {
   const [searchParams, setSearchParams] = useSearchParams()

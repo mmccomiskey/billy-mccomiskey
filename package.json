@@ -9,6 +9,9 @@
     "generate:llms": "node scripts/generate-llms.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "mcp": "node tools/mcp-server.mjs"
   },
   "dependencies": {
@@ -27,6 +30,7 @@
   },
   "devDependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
@@ -35,6 +39,7 @@
     "oxlint": "^1.71.0",
     "tailwindcss": "^4.3.2",
     "typescript": "~6.0.2",
-    "vite": "^8.1.1"
+    "vite": "^8.1.1",
+    "vitest": "^4.1.10"
   }
 }
