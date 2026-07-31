@@ -20,6 +20,7 @@ and archival ingest tools such as the Irish Traditional Music Archive, ITMA).
 ## Full data
 
 - Structured JSON (canonical): https://beta.billymccomiskey.com/data/tunes.json
+- Structured JSON (discography): https://beta.billymccomiskey.com/data/albums.json
 - Full catalog in markdown (stories + notation): https://beta.billymccomiskey.com/llms-full.txt
 
 ## Data model: `Tune`
@@ -35,6 +36,33 @@ and archival ingest tools such as the Irish Traditional Music Archive, ITMA).
 | `archivalMetadata` | object | `sourceCollection`, `rightsHolder`, `recordingDate` — shaped to match ITMA ingest. |
 | `abcNotation` | string | Standard ABC notation, rendered client-side via abcjs. |
 | `notationSource` | string | Provenance of the notation: `official`, `thesession`, or `placeholder`. |
+
+## Discography (10)
+
+- 2009 — The Green Fields of America (Mick Moloney & Billy McComiskey with the Green Fields of America; role: ensemble; label: Compass Records)
+- 2009 — The Pride of New York (The Pride of New York; role: member; label: Compass Records)
+- 2008 — Absolutely Irish (Various Artists (a Mick Moloney project); role: guest; label: Compass Records)
+- 2008 — Outside the Box (Billy McComiskey; role: solo; label: Compass Records)
+- 1995 — Trian II (Trian; role: member; label: Green Linnet)
+- 1992 — Trian (Trian; role: member; label: Flying Fish)
+- 1985 — The Times We've Had (The Irish Tradition; role: member; label: Green Linnet)
+- 1981 — Makin' the Rounds (Billy McComiskey; role: solo; label: Green Linnet (reissued by Compass))
+- 1978 — The Corner House (The Irish Tradition; role: member; label: Green Linnet)
+- 1976 — Catchin' the Tune (The Irish Tradition; role: member; label: A.Y. Productions (reissued by Smithsonian Folkways))
+
+## Data model: `Album`
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | string | URL-safe stable identifier (kebab-case). |
+| `title` | string | Album title. |
+| `year` | number | Release year. |
+| `artist` | string | Billing/artist name on the release. |
+| `role` | string | Billy's role: `solo`, `member`, `ensemble`, or `guest`. |
+| `label` | string | Record label. |
+| `personnel` | string | Notable players (optional). |
+| `notes` | string | Editorial context (optional). |
+| `links` | object | Optional outbound links (`bandcamp`, `spotify`, `appleMusic`, `compass`, `discogs`, `allmusic`). |
 
 ## License & attribution
 

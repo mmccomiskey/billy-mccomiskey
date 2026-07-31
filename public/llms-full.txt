@@ -2,7 +2,7 @@
 
 > Complete, machine-readable catalog generated from the archive dataset. For the
 > concise index and schema see https://beta.billymccomiskey.com/llms.txt; for structured data see
-> https://beta.billymccomiskey.com/data/tunes.json.
+> https://beta.billymccomiskey.com/data/tunes.json and https://beta.billymccomiskey.com/data/albums.json.
 
 ## Perpetual Light
 
@@ -177,6 +177,161 @@ AG|"D"F2 d3 F|"G"G3 B AG|"D"FA de fg|"D"a2 f3d|"Bm"B3 c d2|"D"A2 d2 (3EFG|"D"F2 
 [1 "D"FG|"D"A2 a3 a|"D"a3 b/a/ ga|"Em"b2 e3 e|"A"e4 fe|"D"d3 c A2|"G"G2 F2 G2|"D"A2 d3 d|"D"d3 G:|
 [2 FG|"D"AD FA de|"D"fg ab af|"Em"bg e2 e2|"A"e4 fe|"D"d3 c A2|"G"G2 F2 G2|"D"A2 d3 d|d4||
 ```
+
+---
+
+# Discography
+
+## The Green Fields of America (2009)
+
+- **Artist:** Mick Moloney & Billy McComiskey with the Green Fields of America
+- **Role:** ensemble
+- **Label:** Compass Records
+- **ID:** `green-fields-of-america`
+- **Personnel:** Mick Moloney, Billy McComiskey, Robbie O'Connell, Athena Tergis, John Doyle, and guests
+- **Notes:** Produced by John Doyle and Mick Moloney.
+
+### Links
+
+  - compass: https://compassrecords.com/artist/green-fields-of-america/
+  - discogs: https://www.discogs.com/release/6137844-The-Green-Fields-Of-America-The-Green-Fields-Of-America
+
+---
+
+## The Pride of New York (2009)
+
+- **Artist:** The Pride of New York
+- **Role:** member
+- **Label:** Compass Records
+- **ID:** `pride-of-new-york`
+- **Personnel:** Joanie Madden (flute, whistle), Brian Conway (fiddle), Billy McComiskey (accordion), Brendan Dolan (piano)
+- **Notes:** A New York Irish supergroup of All-Ireland champions.
+
+### Links
+
+  - compass: https://store.compassrecords.com/products/pride-of-new-york
+
+---
+
+## Absolutely Irish (2008)
+
+- **Artist:** Various Artists (a Mick Moloney project)
+- **Role:** guest
+- **Label:** Compass Records
+- **ID:** `absolutely-irish`
+- **Personnel:** Mick Moloney, Billy McComiskey, Liz Carroll, John Doyle, Joanie Madden, Eileen Ivers, Karan Casey, and others
+- **Notes:** Companion to the public-television film, from a 2007 Irish Arts Center concert in New York.
+
+### Links
+
+  - compass: https://store.compassrecords.com/collections/cd/products/absolutely-irish
+  - allmusic: https://www.allmusic.com/album/absolutely-irish-mw0000794552
+
+---
+
+## Outside the Box (2008)
+
+- **Artist:** Billy McComiskey
+- **Role:** solo
+- **Label:** Compass Records
+- **ID:** `outside-the-box`
+- **Personnel:** with Sean McComiskey (accordion), John Doyle (guitar)
+- **Notes:** Irish Echo Album of the Year, and Billy's first solo record in about 25 years.
+
+### Links
+
+  - allmusic: https://www.allmusic.com/album/outside-the-box-mw0000794559
+
+---
+
+## Trian II (1995)
+
+- **Artist:** Trian
+- **Role:** member
+- **Label:** Green Linnet
+- **ID:** `trian-ii`
+- **Personnel:** Liz Carroll, Billy McComiskey, Dáithí Sproule; guest Tríona Ní Dhomhnaill
+
+### Links
+
+  - compass: https://store.compassrecords.com/products/trian-ii
+  - discogs: https://www.discogs.com/release/4172967-Trian-Trian-II
+
+---
+
+## Trian (1992)
+
+- **Artist:** Trian
+- **Role:** member
+- **Label:** Flying Fish
+- **ID:** `trian`
+- **Personnel:** Liz Carroll, Billy McComiskey, Dáithí Sproule
+- **Notes:** The trio's debut.
+
+### Links
+
+  - discogs: https://www.discogs.com/release/5501102-Trian-Trian
+
+---
+
+## The Times We've Had (1985)
+
+- **Artist:** The Irish Tradition
+- **Role:** member
+- **Label:** Green Linnet
+- **ID:** `the-times-weve-had`
+- **Personnel:** Brendan Mulvihill, Billy McComiskey, Andy O'Brien
+- **Notes:** Produced by Mick Moloney.
+
+### Links
+
+  - allmusic: https://www.allmusic.com/album/the-times-weve-had-mw0000078625
+
+---
+
+## Makin' the Rounds (1981)
+
+- **Artist:** Billy McComiskey
+- **Role:** solo
+- **Label:** Green Linnet (reissued by Compass)
+- **ID:** `makin-the-rounds`
+- **Personnel:** with Andy O'Brien; accordion duets with Sean McGlynn
+- **Notes:** Billy's debut solo album.
+
+### Links
+
+  - compass: https://store.compassrecords.com/products/makin-the-rounds
+  - discogs: https://www.discogs.com/release/5457707-Billy-McComiskey-Makin-The-Rounds
+
+---
+
+## The Corner House (1978)
+
+- **Artist:** The Irish Tradition
+- **Role:** member
+- **Label:** Green Linnet
+- **ID:** `the-corner-house`
+- **Personnel:** Brendan Mulvihill, Billy McComiskey, Andy O'Brien
+- **Notes:** Produced by Mick Moloney, who also plays on the record.
+
+### Links
+
+  - compass: https://compassrecords.com/artist/irish-tradition/
+
+---
+
+## Catchin' the Tune (1976)
+
+- **Artist:** The Irish Tradition
+- **Role:** member
+- **Label:** A.Y. Productions (reissued by Smithsonian Folkways)
+- **ID:** `catchin-the-tune`
+- **Personnel:** Brendan Mulvihill, Billy McComiskey, Andy O'Brien
+- **Notes:** The Irish Tradition's debut album.
+
+### Links
+
+  - bandcamp: https://smithsonianfolkways.bandcamp.com/album/vol-1-catchin-the-tune
 
 ## License & attribution
 
