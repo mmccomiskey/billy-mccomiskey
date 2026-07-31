@@ -1,0 +1,16 @@
+name = "billymccomiskey-feedback"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+workers_dev = false
+
+# Serve at the same origin as the app (beta is proxied through Cloudflare), so
+# the form POSTs to /api/feedback with no cross-origin setup.
+routes = [
+  { pattern = "beta.billymccomiskey.com/api/feedback", zone_name = "billymccomiskey.com" },
+]
+
+[vars]
+GITHUB_REPO = "mmccomiskey/billy-mccomiskey"
+
+# GITHUB_TOKEN is a SECRET, never put it here. Set it with:
+#   wrangler secret put GITHUB_TOKEN
