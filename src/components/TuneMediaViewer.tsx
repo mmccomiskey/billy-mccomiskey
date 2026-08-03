@@ -361,7 +361,7 @@ export function TuneMediaViewer({
               {index + 1} / {slides.length}
             </p>
           </div>
-          <div className="flex gap-2 overflow-x-auto pb-1">
+          <div className="-mx-1 flex gap-2 overflow-x-auto px-1 py-1">
             {slides.map((s, i) => (
               <button
                 key={s.kind === 'image' ? s.image.src : 'notation'}
@@ -370,7 +370,7 @@ export function TuneMediaViewer({
                 aria-label={`Go to ${s.caption}`}
                 aria-current={i === index}
                 className={cn(
-                  'grid size-14 shrink-0 place-items-center overflow-hidden rounded-md border-2 bg-muted transition-colors',
+                  'grid size-14 shrink-0 place-items-center overflow-hidden rounded-md border-2 bg-muted transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50',
                   i === index
                     ? 'border-primary'
                     : 'border-transparent hover:border-border'
