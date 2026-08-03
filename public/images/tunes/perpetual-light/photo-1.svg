@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Placeholder photograph">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f4858"/>
+      <stop offset="1" stop-color="#4a6572"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#sky)"/>
+  <rect x="40" y="40" width="920" height="920" fill="none" stroke="#ffffff" stroke-width="10" opacity="0.85"/>
+  <circle cx="500" cy="360" r="150" fill="#e8d9b5" opacity="0.9"/>
+  <rect x="300" y="520" width="400" height="360" rx="16" fill="#243642" opacity="0.85"/>
+  <g fill="#e8d9b5" opacity="0.9">
+    <rect x="360" y="600" width="60" height="60" rx="6"/>
+    <rect x="470" y="600" width="60" height="60" rx="6"/>
+    <rect x="580" y="600" width="60" height="60" rx="6"/>
+  </g>
+  <text x="500" y="930" font-family="Georgia, serif" font-size="34" fill="#ffffff" text-anchor="middle" opacity="0.95">Billy at the box (dummy photo)</text>
+</svg>

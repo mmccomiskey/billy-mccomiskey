@@ -15,7 +15,27 @@
       "recordingDate": "2020"
     },
     "abcNotation": "X:1\nT:Perpetual Light\nC:Billy McComiskey\nR:air\nM:4/4\nL:1/8\nQ:1/4=66\nK:G\n\"G\"G3A B2A2|\"C\"c3B A2G2|\"G\"B2A2 G2E2|\"D\"D6 z2|\n\"G\"G3A B2d2|\"C\"c3d e2d2|\"Em\"e2d2 \"D\"B2A2|\"G\"G6 z2|]\n",
-    "notationSource": "placeholder"
+    "notationSource": "placeholder",
+    "images": [
+      {
+        "src": "/images/tunes/perpetual-light/manuscript-1.svg",
+        "alt": "First manuscript page of Perpetual Light in Billy's hand",
+        "caption": "Manuscript, page 1 (placeholder)",
+        "kind": "manuscript"
+      },
+      {
+        "src": "/images/tunes/perpetual-light/manuscript-2.svg",
+        "alt": "Second manuscript page with settings and variations",
+        "caption": "Manuscript, page 2 — settings & variations (placeholder)",
+        "kind": "manuscript"
+      },
+      {
+        "src": "/images/tunes/perpetual-light/photo-1.svg",
+        "alt": "Photograph of Billy playing the button accordion",
+        "caption": "Billy at the box (placeholder photo)",
+        "kind": "photo"
+      }
+    ]
   },
   {
     "id": "clear-as-mud",

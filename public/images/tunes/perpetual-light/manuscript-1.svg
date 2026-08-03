@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" role="img" aria-label="Placeholder manuscript scan">
+  <rect width="1100" height="800" fill="#f4efe4"/>
+  <rect x="24" y="24" width="1052" height="752" fill="#fbf8f0" stroke="#d8cdb4" stroke-width="2"/>
+  <text x="60" y="96" font-family="Georgia, serif" font-size="40" fill="#3a3226" font-style="italic">Perpetual Light — air</text>
+  <text x="60" y="132" font-family="Georgia, serif" font-size="22" fill="#8a7d63">Billy McComiskey · manuscript (dummy)</text>
+  <g stroke="#5b5140" stroke-width="1.5">
+    <g transform="translate(60,190)">
+      <line x1="0" y1="0" x2="980" y2="0"/><line x1="0" y1="14" x2="980" y2="14"/><line x1="0" y1="28" x2="980" y2="28"/><line x1="0" y1="42" x2="980" y2="42"/><line x1="0" y1="56" x2="980" y2="56"/>
+    </g>
+    <g transform="translate(60,320)">
+      <line x1="0" y1="0" x2="980" y2="0"/><line x1="0" y1="14" x2="980" y2="14"/><line x1="0" y1="28" x2="980" y2="28"/><line x1="0" y1="42" x2="980" y2="42"/><line x1="0" y1="56" x2="980" y2="56"/>
+    </g>
+    <g transform="translate(60,450)">
+      <line x1="0" y1="0" x2="980" y2="0"/><line x1="0" y1="14" x2="980" y2="14"/><line x1="0" y1="28" x2="980" y2="28"/><line x1="0" y1="42" x2="980" y2="42"/><line x1="0" y1="56" x2="980" y2="56"/>
+    </g>
+    <g transform="translate(60,580)">
+      <line x1="0" y1="0" x2="980" y2="0"/><line x1="0" y1="14" x2="980" y2="14"/><line x1="0" y1="28" x2="980" y2="28"/><line x1="0" y1="42" x2="980" y2="42"/><line x1="0" y1="56" x2="980" y2="56"/>
+    </g>
+  </g>
+  <g fill="#2a2318">
+    <ellipse cx="150" cy="232" rx="10" ry="7" transform="rotate(-18 150 232)"/>
+    <ellipse cx="250" cy="218" rx="10" ry="7" transform="rotate(-18 250 218)"/>
+    <ellipse cx="350" cy="246" rx="10" ry="7" transform="rotate(-18 350 246)"/>
+    <ellipse cx="470" cy="204" rx="10" ry="7" transform="rotate(-18 470 204)"/>
+    <ellipse cx="590" cy="232" rx="10" ry="7" transform="rotate(-18 590 232)"/>
+    <ellipse cx="200" cy="362" rx="10" ry="7" transform="rotate(-18 200 362)"/>
+    <ellipse cx="330" cy="348" rx="10" ry="7" transform="rotate(-18 330 348)"/>
+    <ellipse cx="470" cy="376" rx="10" ry="7" transform="rotate(-18 470 376)"/>
+    <ellipse cx="620" cy="334" rx="10" ry="7" transform="rotate(-18 620 334)"/>
+  </g>
+  <g stroke="#2a2318" stroke-width="3" fill="none">
+    <path d="M160 232 v-46 M260 218 v-46 M360 246 v-46 M480 204 v-46 M600 232 v-46"/>
+    <path d="M210 362 v-46 M340 348 v-46 M480 376 v-46 M630 334 v-46"/>
+  </g>
+  <text x="60" y="730" font-family="Georgia, serif" font-size="20" fill="#8a7d63" font-style="italic">Placeholder scan for the media-viewer prototype.</text>
+</svg>

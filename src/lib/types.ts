@@ -38,6 +38,22 @@ export interface ArchivalMetadata {
   recordingDate: string
 }
 
+/**
+ * A visual asset attached to a tune — a manuscript scan, a photo, or a
+ * hand-written setting. Shown in the per-tune media viewer alongside the
+ * engraved notation. `src` is a path under `/public` (or an absolute URL).
+ */
+export interface TuneImage {
+  /** Path under /public, e.g. "/images/tunes/perpetual-light/manuscript-1.svg". */
+  src: string
+  /** Required alt text for accessibility. */
+  alt: string
+  /** Short caption shown beneath the image in the viewer. */
+  caption?: string
+  /** What the image is, for labelling/grouping. */
+  kind?: 'manuscript' | 'photo' | 'setting'
+}
+
 export interface Tune {
   /** URL-safe stable identifier (kebab-case). */
   id: string
@@ -62,6 +78,8 @@ export interface Tune {
   notationSource: 'placeholder' | 'thesession' | 'official'
   /** Link to the source transcription, when applicable. */
   notationSourceUrl?: string
+  /** Manuscript scans, photos, and settings shown in the media viewer. */
+  images?: TuneImage[]
 }
 
 /** Billy's involvement on an album. */

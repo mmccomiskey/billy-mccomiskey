@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" role="img" aria-label="Placeholder manuscript scan, page two">
+  <rect width="800" height="1100" fill="#efe9db"/>
+  <rect x="24" y="24" width="752" height="1052" fill="#fbf8f0" stroke="#d8cdb4" stroke-width="2"/>
+  <text x="56" y="92" font-family="Georgia, serif" font-size="34" fill="#3a3226" font-style="italic">Perpetual Light</text>
+  <text x="56" y="126" font-family="Georgia, serif" font-size="20" fill="#8a7d63">page 2 · settings &amp; variations (dummy)</text>
+  <g stroke="#5b5140" stroke-width="1.5">
+    <g transform="translate(56,180)"><line x1="0" y1="0" x2="688" y2="0"/><line x1="0" y1="14" x2="688" y2="14"/><line x1="0" y1="28" x2="688" y2="28"/><line x1="0" y1="42" x2="688" y2="42"/><line x1="0" y1="56" x2="688" y2="56"/></g>
+    <g transform="translate(56,300)"><line x1="0" y1="0" x2="688" y2="0"/><line x1="0" y1="14" x2="688" y2="14"/><line x1="0" y1="28" x2="688" y2="28"/><line x1="0" y1="42" x2="688" y2="42"/><line x1="0" y1="56" x2="688" y2="56"/></g>
+    <g transform="translate(56,420)"><line x1="0" y1="0" x2="688" y2="0"/><line x1="0" y1="14" x2="688" y2="14"/><line x1="0" y1="28" x2="688" y2="28"/><line x1="0" y1="42" x2="688" y2="42"/><line x1="0" y1="56" x2="688" y2="56"/></g>
+    <g transform="translate(56,540)"><line x1="0" y1="0" x2="688" y2="0"/><line x1="0" y1="14" x2="688" y2="14"/><line x1="0" y1="28" x2="688" y2="28"/><line x1="0" y1="42" x2="688" y2="42"/><line x1="0" y1="56" x2="688" y2="56"/></g>
+  </g>
+  <g fill="#2a2318">
+    <ellipse cx="140" cy="222" rx="9" ry="6" transform="rotate(-18 140 222)"/>
+    <ellipse cx="230" cy="208" rx="9" ry="6" transform="rotate(-18 230 208)"/>
+    <ellipse cx="330" cy="236" rx="9" ry="6" transform="rotate(-18 330 236)"/>
+    <ellipse cx="440" cy="200" rx="9" ry="6" transform="rotate(-18 440 200)"/>
+    <ellipse cx="180" cy="342" rx="9" ry="6" transform="rotate(-18 180 342)"/>
+    <ellipse cx="300" cy="328" rx="9" ry="6" transform="rotate(-18 300 328)"/>
+    <ellipse cx="430" cy="356" rx="9" ry="6" transform="rotate(-18 430 356)"/>
+  </g>
+  <text x="56" y="760" font-family="'Segoe Script','Bradley Hand',cursive" font-size="30" fill="#3d3a86" transform="rotate(-4 56 760)">"...let perpetual light shine"</text>
+  <text x="56" y="1030" font-family="Georgia, serif" font-size="18" fill="#8a7d63" font-style="italic">Placeholder scan · portrait aspect ratio.</text>
+</svg>
