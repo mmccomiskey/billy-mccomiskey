@@ -82,7 +82,7 @@ export function TuneView() {
           We couldn&apos;t find a tune with that address.
         </p>
         <Link
-          to="/"
+          to="/tunes"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground outline-none hover:bg-primary/85 focus-visible:ring-3 focus-visible:ring-ring/60"
         >
           <ArrowLeft aria-hidden="true" className="size-4" />
@@ -126,47 +126,61 @@ export function TuneView() {
       {/* Top bar: back + share */}
       <div className="mb-6 flex items-center justify-between gap-3">
         <Link
-          to="/"
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/60"
+          to="/tunes"
+          className="inline-flex items-center gap-2 rounded-full bg-card px-5 py-2.5 text-base font-semibold text-foreground ring-1 ring-foreground/10 transition-all outline-none hover:ring-2 hover:ring-primary/40 focus-visible:ring-3 focus-visible:ring-ring/60"
         >
-          <ArrowLeft aria-hidden="true" className="size-4" />
+          <ArrowLeft aria-hidden="true" className="size-5" />
           All tunes
         </Link>
         <ShareButton title={`${tune.title} — Billy McComiskey`} />
       </div>
 
-      {/* Heading */}
-      <header className="mb-5">
-        <h1
-          id="tune-title"
-          className="font-heading text-3xl font-semibold text-foreground sm:text-4xl"
-        >
-          {tune.title}
-        </h1>
-        <p className="mt-1 text-lg text-muted-foreground">
-          <span className="capitalize">{tune.rhythm}</span> · Key of {tune.key}
-        </p>
-      </header>
+      {/* Hero: title beside a contextual image on desktop, stacked on mobile */}
+      {contextImage ? (
+        <div className="mb-8 grid gap-5 md:grid-cols-2 md:items-center md:gap-8">
+          <header>
+            <h1
+              id="tune-title"
+              className="font-heading text-3xl font-semibold text-foreground sm:text-4xl"
+            >
+              {tune.title}
+            </h1>
+            <p className="mt-1 text-lg text-muted-foreground">
+              <span className="capitalize">{tune.rhythm}</span> · Key of{' '}
+              {tune.key}
+            </p>
+          </header>
 
-      {/* Contextual hero image */}
-      {contextImage && (
-        <figure className="mb-6">
-          <button
-            type="button"
-            onClick={() => openViewer(images.indexOf(contextImage) + 1)}
-            aria-label={`View ${contextImage.caption ?? contextImage.alt} full screen`}
-            className="group block aspect-[16/9] w-full overflow-hidden rounded-2xl border border-border bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+          <figure>
+            <button
+              type="button"
+              onClick={() => openViewer(images.indexOf(contextImage) + 1)}
+              aria-label={`View ${contextImage.caption ?? contextImage.alt} full screen`}
+              className="group block aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+            >
+              <img
+                src={contextImage.src}
+                alt={contextImage.alt}
+                className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </button>
+            <figcaption className="mt-2 text-sm text-muted-foreground italic">
+              {contextImage.caption ?? contextImage.alt}
+            </figcaption>
+          </figure>
+        </div>
+      ) : (
+        <header className="mb-6">
+          <h1
+            id="tune-title"
+            className="font-heading text-3xl font-semibold text-foreground sm:text-4xl"
           >
-            <img
-              src={contextImage.src}
-              alt={contextImage.alt}
-              className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-          </button>
-          <figcaption className="mt-2 text-sm text-muted-foreground italic">
-            {contextImage.caption ?? contextImage.alt}
-          </figcaption>
-        </figure>
+            {tune.title}
+          </h1>
+          <p className="mt-1 text-lg text-muted-foreground">
+            <span className="capitalize">{tune.rhythm}</span> · Key of {tune.key}
+          </p>
+        </header>
       )}
 
       <div className="space-y-6">
