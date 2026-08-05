@@ -135,53 +135,18 @@ export function TuneView() {
         <ShareButton title={`${tune.title} — Billy McComiskey`} />
       </div>
 
-      {/* Hero: title beside a contextual image on desktop, stacked on mobile */}
-      {contextImage ? (
-        <div className="mb-8 grid gap-5 md:grid-cols-2 md:items-center md:gap-8">
-          <header>
-            <h1
-              id="tune-title"
-              className="font-heading text-3xl font-semibold text-foreground sm:text-4xl"
-            >
-              {tune.title}
-            </h1>
-            <p className="mt-1 text-lg text-muted-foreground">
-              <span className="capitalize">{tune.rhythm}</span> · Key of{' '}
-              {tune.key}
-            </p>
-          </header>
-
-          <figure>
-            <button
-              type="button"
-              onClick={() => openViewer(images.indexOf(contextImage) + 1)}
-              aria-label={`View ${contextImage.caption ?? contextImage.alt} full screen`}
-              className="group block aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-            >
-              <img
-                src={contextImage.src}
-                alt={contextImage.alt}
-                className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            </button>
-            <figcaption className="mt-2 text-sm text-muted-foreground italic">
-              {contextImage.caption ?? contextImage.alt}
-            </figcaption>
-          </figure>
-        </div>
-      ) : (
-        <header className="mb-6">
-          <h1
-            id="tune-title"
-            className="font-heading text-3xl font-semibold text-foreground sm:text-4xl"
-          >
-            {tune.title}
-          </h1>
-          <p className="mt-1 text-lg text-muted-foreground">
-            <span className="capitalize">{tune.rhythm}</span> · Key of {tune.key}
-          </p>
-        </header>
-      )}
+      {/* Heading: the score is the hero, so the title leads full-width */}
+      <header className="mb-6">
+        <h1
+          id="tune-title"
+          className="font-heading text-3xl font-semibold text-foreground sm:text-4xl"
+        >
+          {tune.title}
+        </h1>
+        <p className="mt-1 text-lg text-muted-foreground">
+          <span className="capitalize">{tune.rhythm}</span> · Key of {tune.key}
+        </p>
+      </header>
 
       <div className="space-y-6">
         <NotationNotice
@@ -191,11 +156,36 @@ export function TuneView() {
 
         <AbcTune abc={tune.abcNotation} title={tune.title} rhythm={tune.rhythm} />
 
+        {/* The contextual image lives with the story it illustrates: a framed
+            plate beside the narrative on desktop, above it on mobile. */}
         <section aria-label="The story behind this tune">
           <h2 className="font-heading mb-2 text-xl font-semibold text-foreground">
             The Story
           </h2>
-          <TuneNarrative key={tune.id} text={tune.narrative} />
+          <div className="md:flex md:gap-6">
+            {contextImage && (
+              <figure className="mb-4 md:order-2 md:mb-0 md:w-64 md:shrink-0">
+                <button
+                  type="button"
+                  onClick={() => openViewer(images.indexOf(contextImage) + 1)}
+                  aria-label={`View ${contextImage.caption ?? contextImage.alt} full screen`}
+                  className="group block aspect-[4/3] w-full overflow-hidden rounded-xl border border-border bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                >
+                  <img
+                    src={contextImage.src}
+                    alt={contextImage.alt}
+                    className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </button>
+                <figcaption className="mt-2 text-sm text-muted-foreground italic">
+                  {contextImage.caption ?? contextImage.alt}
+                </figcaption>
+              </figure>
+            )}
+            <div className="md:order-1 md:flex-1">
+              <TuneNarrative key={tune.id} text={tune.narrative} />
+            </div>
+          </div>
         </section>
 
         {stripImages.length > 0 && (
