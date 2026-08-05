@@ -1,49 +1,29 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useMemo, useRef, useState } from 'react'
+import { Navigate, useSearchParams } from 'react-router-dom'
 import { Search, X } from 'lucide-react'
-import type { Tune } from '@/lib/types'
-import { tunes, getTuneById } from '@/data/tunes'
+import { tunes } from '@/data/tunes'
 import { TuneCard } from '@/components/TuneCard'
-import { TuneModal } from '@/components/TuneModal'
 import { matchesQuery } from '@/lib/search'
 
 export function TunesView() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const tuneParam = searchParams.get('tune')
-  const selected = tuneParam ? getTuneById(tuneParam) : undefined
-  const [notFound, setNotFound] = useState<string | null>(null)
-
+  const [searchParams] = useSearchParams()
   const [query, setQuery] = useState('')
   const searchRef = useRef<HTMLInputElement>(null)
 
-  // A ?tune= that doesn't match any tune: drop the param and let the visitor
-  // know, rather than opening an empty modal. Data is bundled (synchronous),
-  // so there's no loading race to guard against.
-  useEffect(() => {
-    if (tuneParam && !getTuneById(tuneParam)) {
-      setNotFound(tuneParam)
-      setSearchParams({}, { replace: true })
-    }
-  }, [tuneParam, setSearchParams])
+  // Back-compat: old deep links used /?tune=<id>. Send them to the new page.
+  const legacyTune = searchParams.get('tune')
 
   const filtered = useMemo(
     () => tunes.filter((t) => matchesQuery(t, query.trim())),
     [query]
   )
 
-  function openTune(tune: Tune) {
-    setNotFound(null)
-    setSearchParams({ tune: tune.id })
-  }
-
-  function handleOpenChange(open: boolean) {
-    if (!open) setSearchParams({}, { replace: true })
-  }
-
   function clearSearch() {
     setQuery('')
     searchRef.current?.focus()
   }
+
+  if (legacyTune) return <Navigate to={`/tunes/${legacyTune}`} replace />
 
   return (
     <section aria-labelledby="tunes-heading">
@@ -93,26 +73,6 @@ export function TunesView() {
         </form>
       </div>
 
-      {notFound && (
-        <div
-          role="alert"
-          className="mb-6 flex items-start justify-between gap-3 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-base text-amber-900 dark:text-amber-200"
-        >
-          <p>
-            We couldn&apos;t find a tune called “{notFound}”. Here are all of
-            them.
-          </p>
-          <button
-            type="button"
-            onClick={() => setNotFound(null)}
-            aria-label="Dismiss"
-            className="shrink-0 rounded-md p-1 outline-none hover:bg-amber-500/20 focus-visible:ring-3 focus-visible:ring-ring/50"
-          >
-            <X aria-hidden="true" className="size-5" />
-          </button>
-        </div>
-      )}
-
       {filtered.length === 0 && (
         <p className="text-center text-base text-muted-foreground">
           No tunes match “{query}”.
@@ -121,15 +81,9 @@ export function TunesView() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {filtered.map((tune) => (
-          <TuneCard key={tune.id} tune={tune} onOpen={openTune} />
+          <TuneCard key={tune.id} tune={tune} />
         ))}
       </div>
-
-      <TuneModal
-        tune={selected ?? null}
-        open={!!selected}
-        onOpenChange={handleOpenChange}
-      />
     </section>
   )
 }

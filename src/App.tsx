@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { SiteHeader } from '@/components/SiteHeader'
 import { DesktopSidebar, MobileNav } from '@/components/Navigation'
 import { TunesView } from '@/views/TunesView'
+import { TuneView } from '@/views/TuneView'
 import { AlbumsView } from '@/views/AlbumsView'
 import { AboutView } from '@/views/AboutView'
 
@@ -24,6 +25,7 @@ function App() {
           <div className="mx-auto w-full max-w-4xl">
             <Routes>
               <Route path="/" element={<TunesView />} />
+              <Route path="/tunes/:tuneId" element={<TuneView />} />
               <Route path="/albums" element={<AlbumsView />} />
               <Route path="/about" element={<AboutView />} />
               <Route path="*" element={<Navigate to="/" replace />} />
