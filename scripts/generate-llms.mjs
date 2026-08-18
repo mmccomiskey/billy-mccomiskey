@@ -8,7 +8,7 @@
  *
  * Outputs (under public/):
  *   - llms.txt              concise index: overview, schema, tune list, links
- *   - llms-full.txt         full catalog: every tune's story + ABC + metadata
+ *   - llms-full.txt         full catalog: tunes + discography metadata
  *   - .well-known/llms.txt  copy of the index (the path named in the proposal)
  */
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
@@ -26,6 +26,9 @@ const SITE = 'https://beta.billymccomiskey.com'
 
 const tunes = JSON.parse(
   await readFile(join(root, 'src', 'data', 'tunes.json'), 'utf8')
+)
+const albums = JSON.parse(
+  await readFile(join(root, 'src', 'data', 'albums.json'), 'utf8')
 )
 
 const OVERVIEW = `# Billy McComiskey — Original Compositions Archive
@@ -53,6 +56,20 @@ const SCHEMA = `## Data model: \`Tune\`
 | \`abcNotation\` | string | Standard ABC notation, rendered client-side via abcjs. |
 | \`notationSource\` | string | Provenance of the notation: \`official\`, \`thesession\`, or \`placeholder\`. |`
 
+const ALBUM_SCHEMA = `## Data model: \`Album\`
+
+| Field | Type | Description |
+|---|---|---|
+| \`id\` | string | URL-safe stable identifier (kebab-case). |
+| \`title\` | string | Album title. |
+| \`year\` | number | Release year. |
+| \`artist\` | string | Billing/artist name on the release. |
+| \`role\` | string | Billy's role: \`solo\`, \`member\`, \`ensemble\`, or \`guest\`. |
+| \`label\` | string | Record label. |
+| \`personnel\` | string | Notable players (optional). |
+| \`notes\` | string | Editorial context (optional). |
+| \`links\` | object | Optional outbound links (\`bandcamp\`, \`spotify\`, \`appleMusic\`, \`compass\`, \`discogs\`, \`allmusic\`). |`
+
 const LICENSE = `## License & attribution
 
 Compositions © Billy McComiskey. Please retain composer and story credits when
@@ -79,6 +96,14 @@ const indexList = tunes
   })
   .join('\n')
 
+const discographyList = [...albums]
+  .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title))
+  .map(
+    (a) =>
+      `- ${a.year} — ${a.title} (${a.artist}; role: ${a.role}; label: ${a.label})`
+  )
+  .join('\n')
+
 const llmsTxt = `${OVERVIEW}
 
 ## Compositions (${tunes.length})
@@ -88,9 +113,16 @@ ${indexList}
 ## Full data
 
 - Structured JSON (canonical): ${SITE}/data/tunes.json
+- Structured JSON (discography): ${SITE}/data/albums.json
 - Full catalog in markdown (stories + notation): ${SITE}/llms-full.txt
 
 ${SCHEMA}
+
+## Discography (${albums.length})
+
+${discographyList}
+
+${ALBUM_SCHEMA}
 
 ${LICENSE}
 `
@@ -128,13 +160,44 @@ function tuneSection(t) {
   return lines.join('\n')
 }
 
+function albumLinkLines(links = {}) {
+  const rows = Object.entries(links)
+    .filter(([, url]) => Boolean(url))
+    .map(([label, url]) => `  - ${label}: ${url}`)
+  return rows.length ? rows : ['  - (none listed)']
+}
+
+function albumSection(a) {
+  const lines = [
+    `## ${a.title} (${a.year})`,
+    '',
+    `- **Artist:** ${a.artist}`,
+    `- **Role:** ${a.role}`,
+    `- **Label:** ${a.label}`,
+    `- **ID:** \`${a.id}\``,
+  ]
+  if (a.personnel) lines.push(`- **Personnel:** ${a.personnel}`)
+  if (a.notes) lines.push(`- **Notes:** ${a.notes}`)
+  lines.push('', '### Links', '', ...albumLinkLines(a.links))
+  return lines.join('\n')
+}
+
 const llmsFullTxt = `# Billy McComiskey — Original Compositions (Full Catalog)
 
 > Complete, machine-readable catalog generated from the archive dataset. For the
 > concise index and schema see ${SITE}/llms.txt; for structured data see
-> ${SITE}/data/tunes.json.
+> ${SITE}/data/tunes.json and ${SITE}/data/albums.json.
 
 ${tunes.map(tuneSection).join('\n\n---\n\n')}
+
+---
+
+# Discography
+
+${[...albums]
+  .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title))
+  .map(albumSection)
+  .join('\n\n---\n\n')}
 
 ${LICENSE}
 `
