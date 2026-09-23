@@ -7,9 +7,8 @@ test('home shows the Tune Book with tune cards', async ({ page }) => {
 })
 
 test('search filters the tune list', async ({ page }) => {
-  await page.goto('/tunes')
-  // Search renders twice (desktop top / mobile bottom); target the visible one.
-  await page.locator('input[type="search"]:visible').fill('waltz')
+  await page.goto('/')
+  await page.getByPlaceholder('Search by title, type, or key').fill('waltz')
   await expect(page.getByText('THE DIAMOND')).toBeVisible()
   await expect(page.getByText('PERPETUAL LIGHT')).toHaveCount(0)
 })
